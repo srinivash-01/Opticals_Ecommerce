@@ -138,7 +138,7 @@ function ProductScreen() {
     }
     try {
       const { data } = await axios.post(
-        `/api/products/${product._id}/reviews`,
+        `https://opticals-ecommerce.vercel.app/api/products/${product._id}/reviews`,
         { rating, comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
