@@ -55,7 +55,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`https://opticals-ecommerce.vercel.app/api/products/Categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
