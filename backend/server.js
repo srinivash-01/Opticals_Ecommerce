@@ -22,7 +22,7 @@ mongoose
 const app = express();
 
 const corsOrigin ={
-  origin:'https://opticals-ecommerce.vercel.app/', //or whatever port your frontend is using
+  origin:'https://opticals-ecommerce.vercel.app', //or whatever port your frontend is using
   credentials:true,            
   optionSuccessStatus:200
 }
