@@ -79,7 +79,7 @@ function Product(props) {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const { data } = await axios.get(`/api/products/${product._id}`);
+        const { data } = await axios.get(`https://opticals-ecommerce.vercel.app/api/products/${product._id}`);
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
