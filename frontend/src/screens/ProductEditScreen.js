@@ -142,7 +142,7 @@ const ProductEditScreen = () => {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/products/${productId}`);
+        const { data } = await axios.get(`https://opticals-ecommerce.vercel.app/api/products/${productId}`);
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
@@ -182,7 +182,7 @@ const ProductEditScreen = () => {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/products/${productId}`,
+        `https://opticals-ecommerce.vercel.app/api/products/${productId}`,
         {
           _id: productId,
           name,
@@ -229,7 +229,7 @@ const ProductEditScreen = () => {
     bodyFormData.append('file', file);
     try {
       dispatch({ type: 'UPLOAD_REQUEST' });
-      const { data } = await axios.post('/api/upload', bodyFormData, {
+      const { data } = await axios.post('https://opticals-ecommerce.vercel.app/api/upload', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           authorization: `Bearer ${userInfo.token}`,
