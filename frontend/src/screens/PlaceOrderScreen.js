@@ -50,7 +50,7 @@ export default function PlaceOrderScreen() {
       dispatch({ type: 'CREATE_REQUEST' });
 
       const { data } = await Axios.post(
-        '/api/orders',
+        'https://opticals-ecommerce.vercel.app/api/orders',
         {
           orderItems: cart.cartItems.map((item) => ({
             ...item,
@@ -78,7 +78,7 @@ export default function PlaceOrderScreen() {
 
       await Promise.all(
         cart.cartItems.map(async (item) => {
-          await Axios.put(`/api/products/${item._id}/reduceStock`, {}, {
+          await Axios.put(`https://opticals-ecommerce.vercel.app/api/products/${item._id}/reduceStock`, {}, {
             headers: {
               authorization: `Bearer ${userInfo.token}`,
             },
