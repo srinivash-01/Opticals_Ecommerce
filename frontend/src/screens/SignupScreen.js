@@ -34,7 +34,7 @@ export default function SignupScreen() {
     }
     
     try {
-      const { data } = await Axios.post('/api/users/signup', {
+      const { data } = await Axios.post('https://opticals-ecommerce.vercel.app/api/users/signup', {
         name,
         email,
         password,
