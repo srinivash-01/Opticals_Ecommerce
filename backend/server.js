@@ -7,7 +7,7 @@ import productRouter from "./routes/productRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import uploadRouter from "./routes/uploadRoutes.js";
-
+import cors from "cors";
 dotenv.config();
 
 mongoose
@@ -20,6 +20,13 @@ mongoose
   });
 
 const app = express();
+
+const corsOrigin ={
+  origin:'https://opticals-ecommerce.vercel.app/', //or whatever port your frontend is using
+  credentials:true,            
+  optionSuccessStatus:200
+}
+app.use(cors(corsOrigin));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,13 +43,6 @@ app.use("/api/upload", uploadRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
-
-
-app.use(function (request, response, next) {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 // const __dirname = path.resolve();
 // // Serve static files from the build directory
