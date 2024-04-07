@@ -101,7 +101,7 @@ export default function OrderScreen() {
       try {
         dispatch({ type: 'PAY_REQUEST' });
         const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
+          `https://opticals-ecommerce.vercel.app/api/orders/${order._id}/pay`,
           details,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },
@@ -123,7 +123,7 @@ export default function OrderScreen() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/orders/${orderId}`, {
+        const { data } = await axios.get(`https://opticals-ecommerce.vercel.app/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -150,7 +150,7 @@ export default function OrderScreen() {
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
+        const { data: clientId } = await axios.get('https://opticals-ecommerce.vercel.app/api/keys/paypal', {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         paypalDispatch({
@@ -178,7 +178,7 @@ export default function OrderScreen() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await axios.put(
-        `/api/orders/${order._id}/deliver`,
+        `https://opticals-ecommerce.vercel.app/api/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
@@ -201,7 +201,7 @@ export default function OrderScreen() {
       dispatch({ type: 'FETCH_REQUEST' });
       
       // Fetch the order details from the backend
-      const { data: order } = await axios.get(`/api/orders/${orderId}`, {
+      const { data: order } = await axios.get(`https://opticals-ecommerce.vercel.app/api/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       
@@ -257,7 +257,7 @@ export default function OrderScreen() {
       
       
       // Update the backend with the payment details
-      const response = await axios.put(`/api/orders/${orderId}/pay`, paymentDetails, {
+      const response = await axios.put(`https://opticals-ecommerce.vercel.app/api/orders/${orderId}/pay`, paymentDetails, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       
