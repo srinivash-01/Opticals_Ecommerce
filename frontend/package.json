@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://opticals-ecommerce.vercel.app/",
+  "proxy": "https://opticals-ecommerce-jzb2evf85-srinivashs-projects.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
