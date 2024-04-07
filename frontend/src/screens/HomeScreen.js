@@ -40,7 +40,7 @@ function HomeScreen() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const result = await axios.get("/api/products");
+        const result = await axios.get("https://opticals-ecommerce.vercel.app/api/products");
 
         const eyeglassesData = result.data.filter(product => product.category === "eyeglasses");
         const sunglassesData = result.data.filter(product => product.category === "sunglasses");
